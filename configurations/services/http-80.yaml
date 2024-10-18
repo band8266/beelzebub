@@ -3,6 +3,18 @@ protocol: "http"
 address: ":80"
 description: "Wordpress 6.0"
 commands:
+  - regex: "^.{41,}$"
+    handler:
+      <html>
+        <header>
+          <title>404</title>
+        </header>
+        <body>
+          <h1>Not found!</h1>
+        </body>
+      </html>
+    headers:
+    statusCode: 404
   - regex: "^(/index.php|/index.html|/)$"
     handler:
       <html>
